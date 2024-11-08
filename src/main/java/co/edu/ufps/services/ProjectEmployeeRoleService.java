@@ -23,5 +23,4 @@ public class ProjectEmployeeRoleService {
         return projectAssignmentRepository.findByProject_Id(projectId);
     }
 
-    // Puedes añadir otros métodos aquí como sea necesario...
 }
