@@ -1,6 +1,6 @@
 package co.edu.ufps.entity;
 
-
+import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -14,4 +14,7 @@ public class Role {
     private Integer id;
 
     private String name;
+
+    @OneToMany(mappedBy = "role")
+    private List<ProjectAssignment> projectAssignments;
 }

@@ -1,5 +1,6 @@
 package co.edu.ufps.entity;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -15,9 +16,12 @@ public class Project {
 
     private String name;
     private String description;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
-    private String startDate;
-    private String endDate;
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 
     @OneToMany(mappedBy = "project")
     private List<ProjectAssignment> projectAssignments;

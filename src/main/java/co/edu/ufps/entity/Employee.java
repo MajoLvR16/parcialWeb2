@@ -1,10 +1,10 @@
 package co.edu.ufps.entity;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 
 @Entity
 @Data
@@ -16,7 +16,7 @@ public class Employee {
 
     private String firstName;
     private String lastName;
-    private String birthdate;
+    private LocalDate birthdate;
 
     @ManyToOne
     @JoinColumn(name = "dep_id")
@@ -26,13 +26,11 @@ public class Employee {
     @JoinColumn(name = "pos_id")
     private Position position;
 
-    private String entryDate;
+    private LocalDate entryDate;
 
-    // Relación con la tabla Visit
-    @OneToMany(mappedBy = "employee")
-    private List<Visit> visits;
-
-    // Relación con la tabla ProjectAssignment
     @OneToMany(mappedBy = "employee")
     private List<ProjectAssignment> projectAssignments;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Visit> visits;
 }
