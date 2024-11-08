@@ -1,9 +1,7 @@
 package co.edu.ufps.entity;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
-
 
 @Entity
 @Data

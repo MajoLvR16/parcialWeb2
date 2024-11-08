@@ -1,6 +1,5 @@
 package co.edu.ufps.entity;
 
-
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -20,7 +19,15 @@ public class Department {
     @JoinColumn(name = "chief_id")
     private Employee chief;
 
-    // Esto indica la relación con los empleados que visitan este departamento
+    // Relación con los empleados que visitan este departamento
     @OneToMany(mappedBy = "department")
     private List<Visit> visits;
+
+    // Relación con los empleados en este departamento
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employees;
+
+    // Relación con los proyectos en este departamento (si es aplicable)
+    @OneToMany(mappedBy = "department")
+    private List<Project> projects;
 }

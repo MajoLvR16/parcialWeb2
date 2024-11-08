@@ -15,7 +15,7 @@ public class EmployeeDepartmentRemovalService {
     public Employee removeDepartmentFromEmployee(Integer employeeId) {
         Employee employee = employeeRepository.findById(employeeId).orElse(null);
         if (employee != null) {
-            employee.setDepartment(null); // Desasocia el departamento
+            employee.setDepartment(null);  // Desasocia el departamento
             return employeeRepository.save(employee);
         }
         return null;
